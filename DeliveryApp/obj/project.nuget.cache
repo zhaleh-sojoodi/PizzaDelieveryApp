@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "E+YOkUfJ+6faCh3JpMAPUH9h3sZxxQn+yJfINBsYgzjPgHe/6lcUf6N6y14qv6JqodzypG5cni/IfZjm2G0zIA==",
+  "dgSpecHash": "EOYW4Pu9JNIO/sElTtzKX69pN+TSjn+K9vjVJ5Az6pIaZaTOy9jsNU/C8jNIutUxJlF9fw9ODxzUnLMRXpUyEw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Owner\\Desktop\\DelieveryApp\\DeliveryApp\\DeliveryApp\\DeliveryApp.csproj",
   "expectedPackageFiles": [
@@ -14,6 +14,7 @@
     "C:\\Users\\Owner\\.nuget\\packages\\microsoft.entityframeworkcore.design\\5.0.0\\microsoft.entityframeworkcore.design.5.0.0.nupkg.sha512",
     "C:\\Users\\Owner\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\5.0.0\\microsoft.entityframeworkcore.relational.5.0.0.nupkg.sha512",
     "C:\\Users\\Owner\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\5.0.0\\microsoft.entityframeworkcore.sqlserver.5.0.0.nupkg.sha512",
+    "C:\\Users\\Owner\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\5.0.0\\microsoft.entityframeworkcore.tools.5.0.0.nupkg.sha512",
     "C:\\Users\\Owner\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\5.0.0\\microsoft.extensions.caching.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\Owner\\.nuget\\packages\\microsoft.extensions.caching.memory\\5.0.0\\microsoft.extensions.caching.memory.5.0.0.nupkg.sha512",
     "C:\\Users\\Owner\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\5.0.0\\microsoft.extensions.configuration.abstractions.5.0.0.nupkg.sha512",
