@@ -10,7 +10,7 @@ namespace DeliveryApp.Repositories
     public interface IOrderRepository
     {
         public Task AddOrder(Order order);
-        public Task<IEnumerable<OrderVM>> GetOrdersByDate(DateTime dt);
+        public Task<IEnumerable<OrderVM>> GetOrdersByCustomerAndDate(OrderVM order);
         public Task<OrderVM> GetOrderById(int id);
         public Task DropOrder(int orderId);
     }

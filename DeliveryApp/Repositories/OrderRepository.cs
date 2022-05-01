@@ -55,23 +55,33 @@ namespace DeliveryApp.Repositories
             _logger.LogDebug("Successfully inserted order");
         }
 
-        public async Task<IEnumerable<OrderVM>> GetOrdersByDate(DateTime dt)
+        public async Task<IEnumerable<OrderVM>> GetOrdersByCustomerAndDate(OrderVM order)
         {
-            var orders= await _context.Orders.Where(o => DateTime.Compare(o.OrderDate.Value.Date, dt.Date) == 0).Select(o => new OrderVM
+            if (!await _customerExist(order.CustomerEmail))
             {
-                OrderId = o.OrderId,
-                CustomerEmail = o.CustomerEmail,
-                OrderTotal = o.OrderTotal,
-                OrderDate = o.OrderDate,
-                OrderItems = o.OrderItems.Select(i => new OrderItemVM
+                var errMsg = "Customer doesnot exist";
+                _logger.LogError(errMsg);
+                throw new KeyNotFoundException(errMsg);
+
+            }
+
+            var orders= await _context.Orders
+                .Where(o => o.CustomerEmail.Equals(order.CustomerEmail) && DateTime.Compare(o.OrderDate.Value.Date, order.OrderDate.Value.Date) == 0)
+                .Select(o => new OrderVM
                 {
-                    PizzaName = i.Pizza.PizzaName,
-                    PizzaAmount = i.Pizza.PizzaAmount,
-                    ItemCount = i.ItemCount,
-                    OrderItemAmount = i.ItemCount * i.Pizza.PizzaAmount
-                }).ToList()
-            }).ToListAsync();
-            _logger.LogDebug($"Retrived all the orders for the date : {dt.Date}");
+                    OrderId = o.OrderId,
+                    CustomerEmail = o.CustomerEmail,
+                    OrderTotal = o.OrderTotal,
+                    OrderDate = o.OrderDate,
+                    OrderItems = o.OrderItems.Select(i => new OrderItemVM
+                    {
+                        PizzaName = i.Pizza.PizzaName,
+                        PizzaAmount = i.Pizza.PizzaAmount,
+                        ItemCount = i.ItemCount,
+                        OrderItemAmount = i.ItemCount * i.Pizza.PizzaAmount
+                    }).ToList()
+                }).ToListAsync();
+            _logger.LogDebug($"Retrived all the orders for the customet : {order.CustomerEmail} on the date : {order.OrderDate}");
             return orders;
         }
 

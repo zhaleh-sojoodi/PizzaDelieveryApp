@@ -155,3 +155,4 @@ C:\Users\Owner\Desktop\DelieveryApp\DeliveryApp\DeliveryApp\bin\Debug\netcoreapp
 C:\Users\Owner\Desktop\DelieveryApp\DeliveryApp\DeliveryApp\obj\Debug\netcoreapp3.1\DeliveryApp.csproj.CoreCompileInputs.cache
 C:\Users\Owner\Desktop\DelieveryApp\DeliveryApp\DeliveryApp\obj\Debug\netcoreapp3.1\DeliveryApp.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Owner\Desktop\DelieveryApp\DeliveryApp\DeliveryApp\bin\Debug\netcoreapp3.1\System.Text.Encodings.Web.dll
+C:\Users\Owner\Desktop\DelieveryApp\DeliveryApp\DeliveryApp\obj\Debug\netcoreapp3.1\DeliveryApp.csprojAssemblyReference.cache

@@ -29,20 +29,26 @@ namespace DeliveryApp.Controllers
         }
 
         //GET: api/Orders
-        [HttpGet("{dt}")]
-        public async Task<ActionResult<IEnumerable<OrderVM>>> GetOrdersByDate(DateTime dt)
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<OrderVM>>> GetOrdersByCustomerAndDate(OrderVM order)
         {
-            _logger.LogInformation($"Retrive all the order for the date : {dt}");
+            _logger.LogInformation($"Retrive all the order for the date : {order.OrderDate} for the customer : {order.CustomerEmail}");
             try
             {
-                if (dt.Date > DateTime.Now.Date)
+                if (order.OrderDate.Value.Date > DateTime.Now.Date)
                 {
-                    var errMsg = $"Fail to retrive orders for with date : {dt}. Date is for future";
+                    var errMsg = $"Fail to retrive orders for with date : {order.OrderDate}. Date is for future";
                     _logger.LogError(errMsg);
                     return StatusCode(StatusCodes.Status400BadRequest, new { status = "Fail", message = errMsg });
                 }
-                var orders = await _orderRepository.GetOrdersByDate(dt);
+                var orders = await _orderRepository.GetOrdersByCustomerAndDate(order);
                 return Ok(orders);
+            }
+            catch (KeyNotFoundException ex)
+            {
+                var errMsg = $"Fail to retrive order : {ex.Message}";
+                _logger.LogError(errMsg);
+                return StatusCode(StatusCodes.Status404NotFound, new { status = "Fail", message = errMsg });
             }
             catch (Exception ex)
             {
