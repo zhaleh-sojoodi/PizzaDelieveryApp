@@ -46,10 +46,10 @@ namespace DeliveryApp.Repositories
 
             order.OrderDate = DateTime.Now;
             order.OrderTotal = order.OrderItems.Sum(i => i.OrderItemAmount);
-            foreach (OrderItem o in order.OrderItems.ToList())
-            {
-                order.OrderItems.Add(o);
-            }
+            //foreach (OrderItem o in order.OrderItems.ToList())
+            //{
+            //    order.OrderItems.Add(o);
+            //}
             _context.Orders.Add(order);
             await _context.SaveChangesAsync();
             _logger.LogDebug("Successfully inserted order");
